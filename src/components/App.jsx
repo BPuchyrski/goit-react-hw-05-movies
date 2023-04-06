@@ -1,16 +1,15 @@
+import MainPage from 'pages/MainPage';
+import { Routes } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import SharedLayout from './sharedLayout/SharedLayout';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<MainPage />} />
+        <Route path="*" element={<MainPage />} />
+      </Route>
+    </Routes>
   );
 };
