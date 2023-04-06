@@ -4,7 +4,7 @@
   margin: 0 auto;
 }
 
-h1 {
+.title {
   margin-top: 0px;
   text-align: center;
 }
@@ -19,5 +19,6 @@ p {
 
 .background {
   background: linear-gradient(#e66465, #9198e5, #e66465, #9198e5);
-  padding-bottom: 20px;
+  padding-bottom: 50px;
+  padding-top: 50px;
 }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import css from './FilmDetails.module.css';
 import { useEffect, useState } from 'react';
-const { Link, useParams } = require('react-router-dom');
+const { useParams } = require('react-router-dom');
 
 const FilmDetails = () => {
   const { filmId } = useParams();
@@ -27,7 +27,7 @@ const FilmDetails = () => {
 
   return (
     <div className={css.background}>
-      <Link to="/">Go Home</Link>
+      {/* <Link to="/">Go Home</Link> */}
       <div className={css.wrapper}>
         <div>
           <img
@@ -39,7 +39,7 @@ const FilmDetails = () => {
           />
         </div>
         <div>
-          <h1>{movieInfo.title}</h1>
+          <h1 className={css.title}>{movieInfo.title}</h1>
           <p>{movieInfo.overview}</p>
           <p>Status: {movieInfo.status}</p>
           <p>
