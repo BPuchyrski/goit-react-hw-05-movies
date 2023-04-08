@@ -5,10 +5,10 @@ import { useParams } from "react-router-dom";
 const Reviews = () => {
     const { filmId } = useParams()
     const [info, setInfo] = useState([])
-    
+    const id = filmId
 
     useEffect(() => {
-        const id = filmId
+       
         const getInfo = async () => {
             const apiKey = '51934b572a5859af92b6c7b46a350a1c';
             const response = await axios.get(
@@ -17,8 +17,9 @@ const Reviews = () => {
             console.log(response.data.results)
             setInfo(response.data.results)
         }
-
+        
         getInfo()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 

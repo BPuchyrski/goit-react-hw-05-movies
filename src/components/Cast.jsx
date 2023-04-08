@@ -6,9 +6,9 @@ const Cast = () => {
     const { filmId } = useParams()
     const [cast, setCast] = useState([])
     
+    const id = filmId
 
     useEffect(() => {
-        const id = filmId
         const getCast = async() => {
             const apiKey = '51934b572a5859af92b6c7b46a350a1c';
             const response = await axios.get(
@@ -19,6 +19,7 @@ const Cast = () => {
             
         }
         getCast()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     
