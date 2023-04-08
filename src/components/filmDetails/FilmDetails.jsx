@@ -1,12 +1,14 @@
 import axios from 'axios';
 import css from './FilmDetails.module.css';
 import { useEffect, useState } from 'react';
-const { useParams } = require('react-router-dom');
+const { useParams, useNavigate } = require('react-router-dom');
 
 const FilmDetails = () => {
   const { filmId } = useParams();
   const [movieId] = useState(filmId);
   const [movieInfo, setMovieInfo] = useState({});
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getMovieInfo = async () => {
@@ -24,6 +26,14 @@ const FilmDetails = () => {
     getMovieInfo();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const showCast = () => {
+      navigate(`/movies/${movieId}/cast`)
+  }
+
+  const showReviews = () => {
+    navigate(`/movies/${movieId}/reviews`)
+  }
 
   return (
     <div className={css.background}>
@@ -49,6 +59,8 @@ const FilmDetails = () => {
           </p>
         </div>
       </div>
+      <button onClick={showCast}>Show cast</button>
+      <button onClick={showReviews}>Reviews</button>
     </div>
   );
 };
