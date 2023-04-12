@@ -1,14 +1,20 @@
 import axios from 'axios';
 import css from './FilmDetails.module.css';
 import { useEffect, useState } from 'react';
-const { useParams, useNavigate } = require('react-router-dom');
+const {
+  useParams,
+  useNavigate,
+  useLocation,
+  Link,
+} = require('react-router-dom');
 
 const FilmDetails = () => {
   const { filmId } = useParams();
   const [movieId] = useState(filmId);
   const [movieInfo, setMovieInfo] = useState({});
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const getMovieInfo = async () => {
@@ -28,16 +34,20 @@ const FilmDetails = () => {
   }, []);
 
   const showCast = () => {
-      navigate(`/movies/${movieId}/cast`)
-  }
+    navigate(`/movies/${movieId}/cast`);
+  };
 
   const showReviews = () => {
-    navigate(`/movies/${movieId}/reviews`)
-  }
+    navigate(`/movies/${movieId}/reviews`);
+  };
 
+  const backLinkHref = () => {
+    return location.state?.from ?? '/';
+  };
   return (
     <div className={css.background}>
       {/* <Link to="/">Go Home</Link> */}
+      <Link to={backLinkHref()}>Go Back</Link>
       <div className={css.wrapper}>
         <div>
           <img

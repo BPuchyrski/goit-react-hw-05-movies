@@ -1,4 +1,4 @@
-import FilmList from 'components/FilmList';
+import FilmList from 'components/filmList/FilmList';
 const MainPage = () => {
   return <FilmList></FilmList>;
 };

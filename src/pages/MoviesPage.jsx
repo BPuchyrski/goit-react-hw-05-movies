@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -8,6 +8,7 @@ const MoviesPage = () => {
   const [filmsArr, setFilmsArr] = useState([]);
   const [filmList, setFilmList] = useSearchParams();
   const searchFilm = filmList.get('filmName');
+  const location = useLocation();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -45,7 +46,9 @@ const MoviesPage = () => {
             const filmId = `/movies/${film.id}`;
             return (
               <p key={film.id}>
-                <Link to={filmId}>{film.title}</Link>
+                <Link to={filmId} state={{ from: location }}>
+                  {film.title}
+                </Link>
               </p>
             );
           })

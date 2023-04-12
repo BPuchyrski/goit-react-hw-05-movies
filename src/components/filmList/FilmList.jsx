@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 const FilmList = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     const getTrendingMovies = async () => {
@@ -28,7 +29,9 @@ const FilmList = () => {
           const filmId = `/movies/${movie.id}`;
           return (
             <p key={movie.id}>
-              <Link to={filmId}>{movie.title}</Link>
+              <Link to={filmId} state={{ from: location }}>
+                {movie.title}
+              </Link>
             </p>
           );
         })

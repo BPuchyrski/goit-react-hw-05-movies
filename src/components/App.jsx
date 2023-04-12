@@ -6,8 +6,8 @@ import { lazy } from 'react';
 
 const MoviesPage = lazy(() => import('../pages/MoviesPage'));
 const FilmDetailsPage = lazy(() => import('../pages/FilmsDetailsPage'));
-const Cast = lazy(() => import('../components/Cast'));
-const Reviews = lazy(() => import('../components/Reviews'));
+const Cast = lazy(() => import('./cast/Cast'));
+const Reviews = lazy(() => import('./reviews/Reviews'));
 // import MoviesPage from 'pages/MoviesPage';
 // import FilmDetailsPage from 'pages/FilmsDetailsPage';
 // import Cast from './Cast';
