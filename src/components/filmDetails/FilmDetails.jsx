@@ -5,6 +5,7 @@ const {
   useParams,
   useNavigate,
   useLocation,
+  // eslint-disable-next-line no-unused-vars
   Link,
 } = require('react-router-dom');
 
@@ -14,6 +15,7 @@ const FilmDetails = () => {
   const [movieInfo, setMovieInfo] = useState({});
 
   const navigate = useNavigate();
+  // eslint-disable-next-line no-unused-vars
   const location = useLocation();
 
   useEffect(() => {
@@ -42,12 +44,14 @@ const FilmDetails = () => {
   };
 
   const backLinkHref = () => {
-    return location.state?.from ?? '/';
+    // return location.state?.from ?? '/';
+    navigate(-1);
   };
   return (
     <div className={css.background}>
       {/* <Link to="/">Go Home</Link> */}
-      <Link to={backLinkHref()}>Go Back</Link>
+      {/* <Link to={backLinkHref()}>Go Back</Link> */}
+      <button onClick={backLinkHref}>Go back</button>
       <div className={css.wrapper}>
         <div>
           <img
